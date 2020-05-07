@@ -14,4 +14,4 @@ def register(request):
         form = UserRegisterForm(request.POST)
 
 
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/register.html',{'form': form})
