@@ -5,6 +5,7 @@ from django.contrib import messages
 
 def register(request):
     if request.method =='POST':
+        form.save()
         form = UserCreationForm(request.POST)
         if form.is_valid():
             username= form.cleaned_data.get('username')
