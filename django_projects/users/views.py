@@ -21,6 +21,10 @@ def profile(request):
     if request.method =='POST':
         update_form = UserUpdatationForm(request.POST,instance=request.user)
         profile_update_form = ProfileUpdatationForm(request.POST,request.FILES,instance=request.user.profile)
+
+        if update_form.is_valid() and profile_update_form.is_valid():
+            update_form.save()
+            profile_update_form.save()
     else:
         update_form = UserUpdatationForm(request.POST,instance=request.user)
         profile_update_form = ProfileUpdatationForm(request.POST,instance=request.user.profile)
