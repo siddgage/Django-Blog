@@ -49,6 +49,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     # all the names should be as follows
     model = Post
+    success_url = 'blog_home'
 
     def test_func(self):
         post = self.get_object()
