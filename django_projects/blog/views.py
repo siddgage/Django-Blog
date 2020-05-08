@@ -6,7 +6,7 @@ from .models import Post
 # render return a httpResponse and is a shortcut method used here.
 def index(request):
     context={
-        'posts':Post.objects.all()
+        'posts':Post.objects.all() #ignore error
     }
     return render(request,'blog/home.html', context) 
 
@@ -30,7 +30,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self,form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-
+    #prefined method
     def test_func(self):
         post = self.get_object()
         if self.request.user == post.author:
