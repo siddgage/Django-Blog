@@ -28,8 +28,8 @@ def profile(request):
             messages.success(request, f'Account Updated')
             return redirect('profiles')
     else:
-        update_form = UserUpdatationForm(request.POST,instance=request.user)
-        profile_update_form = ProfileUpdatationForm(request.POST,instance=request.user.profile)
+        update_form = UserUpdatationForm(instance=request.user)
+        profile_update_form = ProfileUpdatationForm(instance=request.user.profile)
 
 
     context = {
