@@ -11,6 +11,7 @@ def index(request):
 
 
 class PostListView(ListView):
+    # all the names should be as follows
     model = Post
     template_name= 'blog/home.html'
     context_object_name = 'posts'
