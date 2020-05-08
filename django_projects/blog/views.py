@@ -46,7 +46,13 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     # all the names should be as follows
     model = Post
     success_url = 'blog_home'
