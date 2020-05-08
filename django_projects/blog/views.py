@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic  import ListView, DetailView
+from django.views.generic  import ListView, DetailView, CreateView
 from .models import Post
 
 # render return a httpResponse and is a shortcut method used here.
@@ -21,6 +21,10 @@ class PostDetailView(DetailView):
     # all the names should be as follows
     model = Post
     
+class PostCreateView(CreateView):
+    # all the names should be as follows
+    model = Post
+    fields = ['title','content']
 
 def about(request):
     return render(request,'blog/about.html', {'title':'BLOG | ABOUT'})
